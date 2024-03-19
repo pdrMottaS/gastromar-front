@@ -1,9 +1,41 @@
 @import './base.css';
 
-#app {
+.strict {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   font-weight: normal;
   height: 100vh;
+}
+
+.login-container {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  justify-content: center;
+
+  .login-content {
+    display: flex;
+    gap: 16px;
+    flex-direction: column;
+
+    .head-content {
+      display: flex;
+      gap: 8px;
+      flex-direction: column;
+    }
+
+    .form-content {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .button-content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 4px;
+    }
+  }
 }
