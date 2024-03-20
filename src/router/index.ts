@@ -5,6 +5,7 @@ import LoginView from '../views/LoginView.vue'
 import RegisterView from '../views/RegisterView.vue'
 import EventsView from '../views/EventsView.vue'
 import EventView from '../views/EventView.vue'
+import EditorView from '@/views/EditorView.vue'
 
 const router = createRouter({
   routes: [
@@ -32,7 +33,13 @@ const router = createRouter({
       path: '/event/:id',
       name: 'event',
       component: EventView
-    }
+    },
+    {
+      path: '/editor',
+      name: 'editor',
+      component: EditorView,
+      meta: { auth: true }
+    },
   ],
   history: createWebHistory()
 })
