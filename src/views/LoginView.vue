@@ -15,6 +15,7 @@ function login(){
   .then(res=>{
     localStorage.setItem('token',res.data.token)
     localStorage.setItem('authorization',res.data.authorization)
+    localStorage.setItem('user',res.data.name)
     router.push('/')
   })
 }

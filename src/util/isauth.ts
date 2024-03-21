@@ -2,10 +2,12 @@ const auth = () =>{
     var res = null
     var token = localStorage.getItem('token')
     var authorization = localStorage.getItem('authorization')
-    if(token!=null && authorization !=null){
+    var user = localStorage.getItem('user')
+    if(token!=null && authorization !=null && user != null){
         res = {
             token,
-            authorization
+            authorization,
+            user
         }
     }
     return res

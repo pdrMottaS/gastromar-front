@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
-import Navbar from '@/components/Navbar.vue'
-import api from '@/service/api'
-import { useRouter } from 'vue-router'
-import { View } from '@element-plus/icons-vue'
+import {ref, onMounted} from 'vue'
+import Navbar from '@/components/Navbar.vue';
+import api from '@/service/api';
+import { RouterLink } from 'vue-router'
+import formatDate from '@/util/formatDate.ts'
 
 interface Reservation {
   email: string
@@ -27,16 +27,12 @@ interface Event {
 const evt = ref<Event[]>([])
 const router = useRouter()
 
-function formatDate(date: string): string {
-  const d = new Date(date)
-  const formattedDate = `${d.getDate()}/${d.getMonth() + 1}/${d.getFullYear()}`
-  return formattedDate
-}
+onMounted(()=>{
+    api.get('/event')
+    .then(res=>{
+        evt.value = res.data
+    })
 
-onMounted(() => {
-  api.get('/event').then((res) => {
-    evt.value = res.data
-  })
 })
 </script>
 <template>

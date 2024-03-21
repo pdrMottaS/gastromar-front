@@ -33,6 +33,7 @@ onMounted(() => {
 
   quill.on('text-change', () => {
     editorContent.value = quill.root.innerHTML
+    console.log(editorContent.value)
   })
 })
 
