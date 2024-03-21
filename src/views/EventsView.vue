@@ -3,6 +3,7 @@ import {ref, onMounted} from 'vue'
 import Navbar from '@/components/Navbar.vue';
 import api from '@/service/api';
 import { RouterLink } from 'vue-router'
+import formatDate from '@/util/formatDate.ts'
 
 interface Reservation {
     email:string
@@ -24,12 +25,6 @@ interface Event {
 }
 
 const evt = ref<Event[]>([])
-
-function formatDate(date:string):string{
-    const d = new Date(date);
-    const formattedDate = `${d.getDate()}/${d.getMonth() + 1}/${d.getFullYear()}`;
-    return formattedDate
-}
 
 onMounted(()=>{
     api.get('/event')
